@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -89,12 +90,34 @@ public class Main {
         System.out.println("Closing your application... \nThank you!");
             }
     private static void searchExpenses(ArrayList<Integer> arrayList) {
-        int leng = arrayList.size();
+    	/*
+         * This method takes an input from user, search for
+         * the input in the arrayList, and print the result
+         * if the input is found or not.
+         * */
+    	int length = arrayList.size();
         System.out.println("Enter the expense you need to search:\t");
         //Complete the method
+        Scanner scan = new Scanner(System.in);
+        int searchValue = scan.nextInt();
+        
+        if (arrayList.contains(searchValue)) {
+        	System.out.println("Expense of "+searchValue
+								+ " has been found at index "
+								+ arrayList.indexOf(searchValue));
+        }
+        else {
+        	System.out.println("Expense of "+searchValue+" is not found!");
+        }
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
-        int arrlength =  arrayList.size();
+    	/*
+    	 * This method sorts the given ArrayList
+    	 * */
+        int arrLength =  arrayList.size();
        //Complete the method. The expenses should be sorted in ascending order.
+        Collections.sort(arrayList);
+        System.out.println("Your saved expenses are sorted: \n");
+        System.out.println(arrayList+"\n");
     }
 }
